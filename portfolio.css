@@ -1,0 +1,134 @@
+html {
+    position: relative;
+    min-width: 1024px;
+    min-height: 768px;
+    height: 100%;
+}
+
+body {
+  margin-left: -512px;
+  position: absolute;
+  height: 768px;
+  width: 950px;
+  left: 50%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.topnav {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  top: 0;
+  width: 50%;
+  text-align: center;
+  font-family: Summer Font;
+  list-style: none;
+}
+
+.topnav a {
+  display: inline-block;
+  color: black;
+  width: 100px;
+  text-align: center;
+  padding: 10px 5px 5px 5px;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.topnav a:hover {
+  color: #32aa95;
+}
+
+h1{
+	font-family: DK Lemon Yellow Sun;
+	font-style: bold;
+	font-size: 100px;
+	margin: 10px;
+	text-align: center;
+}
+
+h2{
+	font-size: 50px;
+	margin: 0px;
+}
+
+h3{
+	text-align: center;
+	
+}
+p{
+	padding: 0px 40px;
+}
+section{
+	height: auto; /* had been 800px */
+	padding: 20px;
+	margin-top: 50px;
+}
+
+.main {
+	height: 800px;
+}
+
+.row {
+    display: -ms-flexbox; /* IE10 */
+    display: flex;
+    -ms-flex-wrap: wrap; /* IE10 */
+    flex-wrap: wrap;
+}
+
+.column{
+    -ms-flex: 50%; /* IE10 */
+    flex: 50%;
+    max-width: 49%;
+    padding: 0px 4px;
+}
+
+.column img {
+    margin: 10px;
+    vertical-align: middle;
+	box-shadow: 0 0 5px rgba(0,0,0,0.2);
+	background-color: rgba(0,0,0,0.0);
+	color: #fff;
+}
+
+.column.about{
+	-ms-flex: 70%; /* IE10 */
+    flex: 70%;
+    max-width: 69%;
+    padding: 0px 4px;
+}
+.column.about.photo {
+	-ms-flex: 30%; /* IE10 */
+    flex: 30%;
+    max-width: 29%;
+    padding: 0px 4px;
+}
+
+.column.about.photo img {
+    margin: 10px;
+    vertical-align: middle;
+}
+
+.footer {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  width: 50%;
+  text-align: center;
+  font-family: Summer Font;
+  list-style: none;
+}
+.footer a {
+  display: inline-block;
+  color: black;
+  width: 100px;
+  text-align: center;
+  padding: 5px 5px 10px 5px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+.footer a:hover {
+  color: #32aa95;
+}
