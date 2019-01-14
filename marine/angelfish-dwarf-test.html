@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="fancies.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="https://unpkg.com/vue"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<meta charset="UTF-8"> 
+</head>
+	<body class="modal-open">
+		<div class="topnav" id="myTopnav">
+			<a href="home.html">Home</a>
+			<a href="marinefish.html">Marine Fish</a>
+			<a href="coral.html">Coral</a>
+			<a href="invertplant.html">Invert/Plant</a>
+			<a href="reefrock.html">Reef Rock</a>
+			<a href="products.html">Products</a>
+			<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNav()">&#9776;</a>
+		</div>
+		
+		<div>
+			<h1>Angelfish, Dwarf</h1>
+			
+			<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+			totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta 
+			sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+			consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui 
+			dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora 
+			incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+			
+			<div id="root">
+			<!-- Quick View ITEMS -->
+				<div class="row">
+					  <div class="shadow" v-for="item in items" @click="itemClicked(item)">
+						  <img style="width:100%" :src="item.itemImg" :alt="item.itemAlt" />
+						  <h3 class="centertext">{{ item.itemName }}</h3>
+						  <p class="centertext">{{ item.itemSname }}<br>${{ item.itemPrice }}</p>
+
+					  </div>
+				  </div>
+				  
+			<!-- MODAL -->
+			  <div id="my-modal" class="modal fade">
+				<div class="modal-dialog" role="document">
+				  <div class="modal-content">
+					<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					</div>
+					<div class="modal-body">
+					  <img style="width:100%" :src="img" :alt="alt" />
+					  <h3>{{ name }}</h3>
+					  <p>{{ sname }}<br>${{ price }}<br>{{ availability }}</p>
+					  <p>{{ description }}</p>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-cart" >Add to Cart</button>
+					</div>
+				  </div>
+				</div>
+			  </div> 
+			</div>
+		</div>
+		
+		<script>
+			var vm = new Vue({
+				el: '#root',
+				data: {
+				   img: '',
+				   alt: '',
+				   name: '',
+				   sname: '',
+				   price: '',
+				   availability: '',
+				   description: '',
+				   
+				   items: [
+					{
+						itemImg: 'images/bicolor-angel.jpg', 
+						itemAlt: 'Bicolor Angelfish', 
+						itemName: 'Bicolor Angelfish', 
+						itemSname: 'Centropyge Bicolor', 
+						itemPrice: 23.99, 
+						itemAvailability: 'In Stock', 
+						desc: 'This is a description of a Bicolor Angelfish.'
+					},
+					{
+						itemImg: 'images/coralbeauty-angel.jpg',
+						itemAlt: 'Coral Beauty Angelfish',
+						itemName: 'Coral Beauty Angelfish',
+						itemSname: 'Centropyge Bispinosa',
+						itemPrice: 29.99,
+						itemAvailability: 'In Stock',
+						desc: 'This is a description of a Coral Beauty Angelfish.'
+					},
+					{
+						itemImg: 'images/flame-angel.jpg',
+						itemAlt: 'Flame Angelfish',
+						itemName: 'Flame Angelfish',
+						itemSname: 'Centropyge Aurantonotus',
+						itemPrice: 55.99,
+						itemAvailability: 'In Stock',
+						desc: 'This is a description of a Flame Angelfish.'
+					},
+					{
+						itemImg: 'images/halfblack-angel.jpg',
+						itemAlt: 'Half Black Angelfish',
+						itemName: 'Half Black Angelfish',
+						itemSname: 'Centropyge Vroliki',
+						itemPrice: 26.99,
+						itemAvailability: 'In Stock',
+						desc: 'This is a description of a Half Black Angelfish.'
+					},
+					{
+						itemImg: 'images/rusty-angel.jpg',
+						itemAlt: 'Rusty Angelfish',
+						itemName: 'Rusty Angelfish',
+						itemSname: 'Centropyge Ferrugata',
+						itemPrice: 26.99,
+						itemAvailability: 'Out of Stock',
+						desc: 'This is a description of a Rusty Angelfish.'
+					},
+				   ]
+				},
+				methods: {
+					itemClicked: function(item) {
+					  this.img = item.itemImg;
+					  this.alt = item.itemAlt;
+					  this.name = item.itemName;
+					  this.sname = item.itemSname;
+					  this.price = item.itemPrice;
+					  this.availability = item.itemAvailability;
+					  this.description = item.desc;
+								$("#my-modal").modal('show');
+					}
+				}
+			});
+		</script>
+		
+		
+		
+	<!--
+		
+		<div id="root">
+			<button type="button" @click="sortimages()">Sort</button>
+			<div class="shadow" v-for="img in imgs" @click="createModal(img)">
+				<img :src="img.src" :alt="img.alt" />
+				<h4>{{img.title}}</h4>
+				<p>{{img.scientific}}</p>
+				<p>{{img.price}}</p>
+			</div>
+			<b-modal id="modal" hide-footer>
+				<img :src="img.src" :alt="img.alt" />
+				<h4>{{modalCurrent.title}}</h4>
+				<p>{{modalCurrent.scientific}}</p>
+				<p>{{modalCurrent.price}}</p>
+				<p>{{modalCurrent.availability}}</p>
+				<p>{{modalCurrent.description}}</p>
+			</b-modal>
+		</div>
+
+		
+		<script>
+		var app1 = new Vue({
+    el: '#root',
+    components: {
+      BootstrapVue
+    },
+    data: function() {
+      return {
+        imgs: [
+          {
+            src: 'images/bicolor-angel.jpg',
+            alt: 'Bicolor Angelfish',
+            title: 'Bicolor Angelfish',
+			scientific: 'Centropyge Bicolor',
+			price: '$23.99',
+			availability: 'In Stock',
+			description: 'This is a description of a Bicolor Angelfish.',
+          },
+          {
+            src: 'images/half-black-angel.jpg',
+            alt: 'Half Black Angelfish',
+            title: 'Half Black Angelfish',
+			scientific: 'Centropyge Vroliki',
+			price: '$26.99',
+			availability: 'In Stock',
+			description: 'This is a description of a Half Black Angelfish.',
+          }
+        ],
+        modalCurrent: {}
+      }
+    },
+    methods: {
+      sortimages: function () {
+        this.imgs.sort(function (a, b) {
+          if(a.title > b.title) {
+            return 1;
+          } else if(a.title < b.title) {
+            return -1;
+          } else {
+            return 0;
+          }
+        });
+      },
+      createModal: function (img) {
+        this.modalCurrent = img;
+        this.$root.$emit('bv::show::modal','modal');
+      }
+    }
+  });
+
+
+		</script>
+-->	
+		
+		
+		
+		
+		
+		<!--	
+		<div class="row">
+				<div class="shadow">
+					<a href="#ex1" rel="modal:open"><img alt="Bicolor Angelfish" src="images/bicolor-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Bicolor Angelfish<br />
+						Centropyge Bicolor <br />
+						$23.99
+					</p>
+					<div class="modal" id="ex1">
+							<img alt="Bicolor Angelfish" src="images/bicolor-angel.jpg" style="width:100%">
+							<h3>Bicolor Angelfish</h3>
+							<p>Centropyge Bicolor <br />$23.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>
+				
+				<div class="shadow">
+					<a href="#ex5" rel="modal:open"><img alt="Half Black Angelfish" src="images/halfblack-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Half Black Angelfish<br />
+						Centropyge Vroliki <br />
+						$26.99
+					</p>
+					<div class="modal" id="ex5">
+							<img alt="Half Black Angelfish" src="images/halfblack-angel.jpg" style="width:100%">
+							<h3>Half Black Angelfish</h3>
+							<p>Centropyge Vroliki <br />$26.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>
+				
+				<div class="shadow">
+					<a href="#ex9" rel="modal:open"><img alt="Rusty Angelfish" src="images/rusty-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Rusty Angelfish<br />
+						Centropyge Ferrugata<br />
+						$26.99
+					</p>
+					<div class="modal" id="ex9">
+							<img alt="Rusty Angelfish" src="images/rusty-angel.jpg" style="width:100%">
+							<h3>Rusty Angelfish</h3>
+							<p>Centropyge Ferrugata<br />$26.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>
+			
+				<div class="shadow">
+					<a href="#ex2" rel="modal:open"><img alt="Coral Beauty Angelfish" src="images/coralbeauty-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Coral Beauty Angelfish<br />
+						Centropyge Bispinosa <br />
+						$29.99
+					</p>
+					<div class="modal" id="ex2">
+							<img alt="Coral Beauty Angelfish" src="images/coralbeauty-angel.jpg" style="width:100%">
+							<h3>Coral Beauty Angelfish</h3>
+							<p>Centropyge Bispinosa <br />$29.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>
+				
+				<div class="shadow">
+					<a href="#ex6" rel="modal:open"><img alt="Lemonpeel Angelfish" src="images/lemonpeel-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Lemonpeel Angelfish<br />
+						Centropyge Flavissima <br />
+						$39.99
+					</p>
+					<div class="modal" id="ex6">
+							<img alt="Lemonpeel Angelfish" src="images/lemonpeel-angel.jpg" style="width:100%">
+							<h3>Lemonpeel Angelfish</h3>
+							<p>Centropyge Flavissima<br />$39.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>
+				
+				<div class="shadow">
+					<a href="#ex10" rel="modal:open"><img alt="TibicenAngelfish" src="images/tibicen-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Tibicen Angelfish<br />
+						Centropyge Tibicin<br />
+						$24.99
+					</p>
+					<div class="modal" id="ex10">
+							<img alt="Tibicen Angelfish" src="images/tibicen-angel.jpg" style="width:100%">
+							<h3>Tibicen Angelfish</h3>
+							<p>Centropyge Tibicin<br />$24.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>
+			
+				<div class="shadow">
+					<a href="#ex3" rel="modal:open"><img alt="Fireball Angelfish" src="images/fireball-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Fireball Angelfish<br />
+						Centropyge Aurantonotus <br />
+						$89.99
+					</p>
+					<div class="modal" id="ex3">
+							<img alt="Fireball Angelfish" src="images/fireball-angel.jpg" style="width:100%">
+							<h3>Fireball Angelfish</h3>
+							<p>Centropyge Aurantonotus <br />$89.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>
+				
+				<div class="shadow">
+					<a href="#ex7" rel="modal:open"><img alt="Pygmy Yellowtail Angelfish" src="images/pygmyyellowtail-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Pygmy Yellowtail Angelfish<br />
+						Centropyge Flavicauda <br />
+						$23.99
+					</p>
+					<div class="modal" id="ex7">
+							<img alt="Pygmy Yellowtail Angelfish" src="images/pygmyyellowtail-angel.jpg" style="width:100%">
+							<h3>Pygmy Yellowtail Angelfish</h3>
+							<p>Centropyge Flavicauda<br />$23.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>
+				
+				<div class="shadow">
+					<a href="#ex11" rel="modal:open"><img alt="Yellow Angelfish" src="images/yellow-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Yellow Angelfish<br />
+						Centropyge Heraldi<br />
+						$21.99
+					</p>
+					<div class="modal" id="ex11">
+							<img alt="Yellow Angelfish" src="images/yellow-angel.jpg" style="width:100%">
+							<h3>Yellow Angelfish</h3>
+							<p>Centropyge Heraldi<br />$21.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>
+			
+				<div class="shadow">
+					<a href="#ex4" rel="modal:open"><img alt="Flame Angelfish" src="images/flame-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Flame Angelfish<br />
+						Centropyge Aurantonotus <br />
+						$55.99
+					</p>
+					<div class="modal" id="ex4">
+							<img alt="Flame Angelfish" src="images/flame-angel.jpg" style="width:100%">
+							<h3>Flame Angelfish</h3>
+							<p>Centropyge Aurantonotus <br />$55.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>
+				
+				<div class="shadow">
+					<a href="#ex8" rel="modal:open"><img alt="Red Stripe Angelfish" src="images/redstripe-angel.jpg" style="width:100%"></a>
+					<p class="centertext">Red Stripe Angelfish<br />
+						Centropyge Eibli<br />
+						$36.99
+					</p>
+					<div class="modal" id="ex8">
+							<img alt="Red Stripe Angelfish" src="images/redstripe-angel.jpg" style="width:100%">
+							<h3>Red Stripe Angelfish</h3>
+							<p>Centropyge Eibli<br />$36.99<br/>In Stock</p>
+							<p>Description will go here Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+							consequuntur magni dolores eos qui ratione voluptatem</p>
+					</div>
+				</div>		
+		</div>-->
+		
+	</body>
+</html>
+		
