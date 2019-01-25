@@ -2,80 +2,116 @@
 <html lang="en">
 <head>
 <title>Emma Lewis (web designer)</title>
-<script src="pretties.js"></script>
-<link rel="stylesheet" type="text/css" href="portfolio.css">
+<link rel="stylesheet" href="css/bootstrap.css">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 	<body>		
-		<div class="top-nav" id="myTopnav">
-			<a href="#top">Home</a>
-			<a href="#web">Web</a>
-			<a href="#art">Art</a>
-			<a href="#about">About</a>
-		<hr>	
-		</div>
+		<nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+			<div class="container">
+				<a class="navbar-brand" href="#">Emma Lewis</a>
+					<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+					  <span class="navbar-toggler-icon"></span>
+					</button>
+					<div class="collapse navbar-collapse" id="navbarCollapse">
+					  <!-- left navigation links -->
+					  <ul class="navbar-nav mr-auto">
+
+						<!-- regular navigation link -->
+						<li class="nav-item">
+						  <a class="nav-link" href="#">Home
+						  <span class="sr-only">(current)</span>
+						  </a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link" href="#web">Web</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link" href="#art">Art</a>
+						</li>
+						<li class="nav-item">
+						  <a class="nav-link" href="#about">About</a>
+						</li>
+
+						<!-- more navigation links -->
+
+					  </ul>
+					  
+						  <!-- right navigation link -->
+
+				</div>
+			</div>
+	
+		</nav>
 		
 		<a name="top">
-			<section class="main">
-				<h1>EMMA LEWIS</h1>
+			<div class="container text-center banner">
+				<h1>EMMA LEWIS</h1>&nbsp;
 				<h3>(web designer)</h3>
-			</section>
+			</div>
 		</a>
 		
 		<a name="web">
-			<section>
-				<h2>Web</h2>
-					<div class="row watercolor--green">
-						<div class="column column--text-background">
-							<h3>Architecture Portfolio</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do 
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim 
-							ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut 
-							aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit 
-							in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-							Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-							officia deserunt mollit anim id est laborum.</p>
+			<div class="container" style="margin-top: 100px;">
+				<h2 style="padding-top: 60px; margin-top: -60px;">Web</h2>
+					<div class="row">
+						<div class="col-md">
+							<h3><a href="www.lindseyshotwell.com">Architecture Portfolio</a></h3>
+							<p>Lindsey Shotwell is a design professional working towards her architect certification.</p>
+							<p>I was asked to create an online portfolio to showcase her experience and design work.</p>
 						</div>
-						<div class="column">
-							<img src="http://via.placeholder.com/400x250">
+						<div class="col-md">
+							<a href="www.lindseyshotwell.com"><img class="shadow" src="http://via.placeholder.com/400x250"></a>
 						</div>
 					</div>
 					<div class="row">
-						<div class="column">
-							<h3>Fish Store</h3>
-							<p>Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit 
-							laboriosam, nisi ut aliquid ex ea commodi consequatur?</p>
+						<div class="col-md">
+							<h3><a href="marine/home.html">North Woods Aquatics</a></h3>
+							<p>North Woods Aquatics is a mock marine fish store website created based on my interest in the hobby of keeping saltwater reef tanks. 
+							As a saltwater enthusiast I visited a lot of fish websites and was disappointed by the lack of design and functionality.</p>
+							<p>North Woods Aquatics was created to show that even an online fish store can be beautiful and function in a way that aids the user 
+							in finding the best fish for their aquarium.</p>
+							<p></p>
 							<ul>
-								<li></li>
-								<li></li>
-								<li></li>
+								<li>HTML</li>
+								<li>CSS</li>
+								<li>Vue.js</li>
+								<li>Bootstrap</li>
 							</ul>
 						</div>
-						<div class="column">
-							<a href="/marine/home.html"><img src="images/fish-store.png" alt="Mock Fish Store Design"></a>
+						<div class="col-md">
+							<figure>
+							  <a href="marine/home.html"><img class="shadow" src="images/fish-store.png" alt="Mock Fish Store Design"></a>
+							  <figcaption><em>Image of the Marine Fish section of North Woods Aquatics website.</em></figcaption>
+							</figure>
 						</div>
 					</div>
-					<div class="row watercolor--dark-blue">
-						<div class="column column--text-background">
+					<div class="row">
+						<div class="col-md">
 							<h3><a href="https://dcfsparc.wisconsin.gov/"><abbr title="Department of Children and Families">DCF</abbr> 
 							<abbr title="System for Payments and Reports of Contracts">SPARC</abbr></a></h3>
-							<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium 
-							doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
-							veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+								<p>While working for the Department of Children and Families I had the opportunity to work with a team 
+								to upgrade the <abbr title="System for Payments and Reports of Contracts">SPARC</abbr> website from a 
+								predominantly HTML site to a content management system (CMS).</p>
+								<p>I was part of a team of three that designed and developed the new site. I produced the new web pages based 
+								on content from the old site that our client indicated was still valid. I also contributed to the color scheme. Joe Harrison created the Drupal template/theme 
+								and setup the modules. Phil Staley handled the search functionality and project management while aiding both 
+								Joe and me in any area necessary.</p>
+								<p>The main goal of the project was to have a simple design that allowed external users to find and access 
+								reports and documentation with ease.</p>
 							<ul>
 								<li>CMS - Drupal</li>
-								<li></li>
-								<li></li>
+								<li>HTML</li>
+								<li>CSS</li>
 							</ul>
 						</div>
-						<div class="column">
-							<a href="https://dcfsparc.wisconsin.gov/"><img src="images/dcf-sparc.png" alt="DCF SPARC home page"></a>
+						<div class="col-md">
+							<a href="https://dcfsparc.wisconsin.gov/"><img class="shadow" src="images/sparc.svg" alt="DCF SPARC home page"></a>
 						</div>
 					</div>
 					
 					<div class="row">
-						<div class="column">
+						<div class="col-md">
 							<h3>Fish Blog</h3>
 							<p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
 							sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. 
@@ -83,21 +119,21 @@
 							adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et 
 							dolore magnam aliquam quaerat voluptatem.</p>
 						</div>
-						<div class="column">
-							<img src="images/cartoon-emma.png" alt="Cartoon image of Emma">
+						<div class="col-md">
+							<img class="shadow" src="images/cartoon-emma.png" alt="Cartoon image of Emma">
 						</div>
 					</div>
 			</section>
 		</a>
 		
 		<a name="art">
-			<section>
-				<h2>Art</h2>
-					<div class="row watercolor--pink">
-						<div class="column">
-							<img src="images/virtual-hi5.png" alt"The Virtual High Five banner and thank you note.">
+			<div class="container">
+				<h2 style="padding-top: 60px; margin-top: -60px;">Art</h2>
+					<div class="row">
+						<div class="col-md">
+							<img class="shadow" src="images/virtual-hi5.png" alt"The Virtual High Five banner and thank you note.">
 						</div>
-						<div class="column column--text-background">
+						<div class="col-md column--text-background">
 							<h3>The Virtual High Five</h3>
 							<p>I designed and developed The Virtual High Five banner and the thank you note for 
 							DCF as part of an internal virtual employee recognition board and notification system.</p>
@@ -110,10 +146,10 @@
 						</div>
 					</div>
 					<div class="row">
-						<div class="column">
-							<img src="images/icons.png" alt="Image of free icons">
+						<div class="col-md">
+							<img class="shadow" src="images/icons.png" alt="Image of free icons">
 						</div>
-						<div class="column">
+						<div class="col-md">
 							<h3>Open Source Icons</h3>
 							<p>I created these icons using Adobe Illustrator CS6. When working as an intern
 							web designer at the Wisconsin Department of Children and Families I kept running 
@@ -123,11 +159,11 @@
 							</ul>
 						</div>
 					</div>
-					<div class="row watercolor--light-blue">
-						<div class="column">
-							<img src="images/ramen-redesign.png" alt="Ramen Re-design">
+					<div class="row">
+						<div class="col-md">
+							<img class="shadow" src="images/ramen-redesign.png" alt="Ramen Re-design">
 						</div>
-						<div class="column column--text-background">
+						<div class="col-md column--text-background">
 							<h3>Ramen Re-design</h3>
 							<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui 
 							blanditiis praesentium voluptatum deleniti atque corrupti quos dolores 
@@ -136,14 +172,14 @@
 							laborum et dolorum fuga.</p>
 						</div>
 					</div>
-			</section>
+			</div>
 		</a>
 		
 		<a name="about">
-			<section>
-				<h2>About</h2>
+			<div class="container" style="margin-top: 100px;">
+				<h2 style="padding-top: 60px; margin-top: -60px;">About</h2>
 					<div class="row">
-							<div class="column about">
+							<div class="col-md about">
 								<h3>Hi, I'm Emma!</h3>
 								<p>At vero eos et accusamus et iusto odio dignissimos ducimus qui 
 								blanditiis praesentium voluptatum deleniti atque corrupti quos dolores 
@@ -163,8 +199,8 @@
 								<img src="images/profile.png">
 							</div>
 					</div>
-					<div class="row">
-						<div class="column about">
+	<!--				<div class="row" style="margin-bottom: 180px;">
+						<div class="col-md about">
 							<h3>Request Resume Form</h3>
 							<form action="/action_page.php">
 								First name:<br>
@@ -178,15 +214,15 @@
 								<input type="submit" value="Submit">
 							</form> 
 						</div>
-					</div>
-			</section>
+					</div>-->
+			</div>
 		</a>
 		
-		<div class="footer">
-			<hr>
-			<a href="">Linked-In</a>
-			<a href="">Facebook</a>
+		<footer class="container mb-4 text-center navbar-light">
+			<a href="">Linked-In</a> -  
+			<a href="">Facebook</a> -
 			<a href="">Instagram</a>
-		</div>		
+		</footer>
+		
 	</body>
 </html>
