@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="fancies.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<script src="https://unpkg.com/vue"></script>
+<meta charset="UTF-8">
+
+
+</head>
+	<body>
+		<div class="topnav" id="myTopnav">
+			<a href="home.html">Home</a>
+			<a href="marinefish.html">Marine Fish</a>
+			<a href="coral.html">Coral</a>
+			<a href="invertplant.html">Invert/Plant</a>
+			<a href="reefrock.html">Reef Rock</a>
+			<a href="products.html">Products</a>
+			<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNav()">&#9776;</a>
+		</div>
+		
+		<h1>Angelfish, Dwarf</h1>
+		
+		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
+		totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta 
+		sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
+		consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui 
+		dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora 
+		incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+		
+		
+		<div id="root">
+		  <div id="my-modal" class="modal fade">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title">Item Clicked!</h5>
+				  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+				  <p>{{ name }}</p>
+						  <p>{{ sname }}</p>
+						  <p>{{ price }}</p>
+						  <p>{{ availability }}
+						  <p>{{ description }}</p>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" class="btn btn-primary">Save changes</button>
+				  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+		  <!-- codes ommited -->
+		  <div>
+			  <li v-for="item in items">
+				  <h3 class="centertext"><span>{{ item.itemName }}</span></h3>
+						  <p class="centertext"><span>{{ item.itemSname }}</span></p>
+						  <p class="centertext"><span>${{ item.itemPrice }}</span></p>
+				  <span><button @click="itemClicked(item)">ShowMore</button></span>
+			  </li>
+		  </div>
+		</div>
+	<!--
+		<script>
+			var vm = new Vue({
+				el: '#root',
+				data: {
+				   name: '',
+				   sname: '',
+				   price: '',
+				   availability: '',
+				   description: '',
+				   
+				   items: [
+					   {itemName: 'Bicolor Angelfish', itemSname: 'Centropyge Bicolor', itemPrice: 23.99, itemAvailability: 'In Stock', desc: 'This is a description of a Bicolor Angelfish.'},
+								   {itemName: 'Coral Beauty Angelfish', itemSname: 'Centropyge Bispinosa', itemPrice: 29.99, itemAvailability: 'In Stock', desc: 'This is a description of a Coral Beauty Angelfish.'},
+								   {itemName: 'Flame Angelfish', itemSname: 'Centropyge Aurantonotus', itemPrice: 55.99, itemAvailability: 'In Stock', desc: 'This is a description of a Flame Angelfish.'},
+								   {itemName: 'Half Black Angelfish', itemSname: 'Centropyge Vroliki', itemPrice: 26.99, itemAvailability: 'In Stock', desc: 'This is a description of a Half Black Angelfish.'},
+								   {itemName: 'Rusty Angelfish', itemSname: 'Centropyge Ferrugata', itemPrice: 26.99, itemAvailability: 'Out of Stock', desc: 'This is a description of a Rusty Angelfish.'},
+								   
+				   ]
+				},
+				methods: {
+					itemClicked: function(item) {
+						this.name = item.itemName;
+								  this.sname = item.itemSname;
+								  this.price = item.itemPrice;
+								  this.availability = item.itemAvailability;
+								  this.description = item.desc;
+								$("#my-modal").modal('show');
+					}
+				}
+			});
+		</script>
+		
+		
+		
+		-->
+		
+		
+		
+		
+		
+	<!--	<div id="root">
+		  <div id="my-modal" class="modal fade">
+			<div class="modal-dialog" role="document">
+			  <div class="modal-content">
+				<div class="modal-header">
+				<button type="button" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+				</div>
+				<div class="modal-body">
+				  <p>{{ name }}</p>
+				  <p>{{ sname }}</p>
+				  <p>{{ price }}</p>
+				  <p>{{ availability }}
+				  <p>{{ description }}</p>
+				</div>
+				<div class="modal-footer">
+				  <button type="button" >Add to Cart</button>
+				  <button type="button" data-dismiss="modal">Close</button>
+				</div>
+			  </div>
+			</div>
+		  </div>
+
+		  
+		  <div class="row">
+			  <div class="shadow" v-for="item in items">
+				  <img style="width:100%" :src="item.itemImg" :alt="item.itemAlt" />
+				  <h3 class="centertext"><span>{{ item.itemName }}</span></h3>
+				  <p class="centertext"><span>{{ item.itemSname }}</span></p>
+				  <p class="centertext"><span>${{ item.itemPrice }}</span></p>
+				  <span><button @click="itemClicked(item)">ShowMore</button></span>
+				  
+			  </div>
+		  </div>
+		</div>
+		
+		<script>
+			var vm = new Vue({
+				el: '#root',
+				data: {
+				   img: '',
+				   alt: '',
+				   name: '',
+				   sname: '',
+				   price: '',
+				   availability: '',
+				   description: '',
+				   
+				   items: [
+					   {itemImg: 'images/bicolor-angel.jpg', itemAlt: 'Bicolor Angelfish', itemName: 'Bicolor Angelfish', itemSname: 'Centropyge Bicolor', itemPrice: 23.99, itemAvailability: 'In Stock', desc: 'This is a description of a Bicolor Angelfish.'},
+					   {itemImg: 'images/coralbeauty-angel.jpg', itemAlt: 'Coral Beauty Angelfish', itemName: 'Coral Beauty Angelfish', itemSname: 'Centropyge Bispinosa', itemPrice: 29.99, itemAvailability: 'In Stock', desc: 'This is a description of a Coral Beauty Angelfish.'},
+					   {itemImg: 'images/flame-angel.jpg', itemAlt: 'Flame Angelfish', itemName: 'Flame Angelfish', itemSname: 'Centropyge Aurantonotus', itemPrice: 55.99, itemAvailability: 'In Stock', desc: 'This is a description of a Flame Angelfish.'},
+					   {itemImg: 'images/halfblack-angel.jpg', itemAlt: 'Half Black Angelfish', itemName: 'Half Black Angelfish', itemSname: 'Centropyge Vroliki', itemPrice: 26.99, itemAvailability: 'In Stock', desc: 'This is a description of a Half Black Angelfish.'},
+					   {itemImg: 'images/rusty-angel.jpg', itemAlt: 'Rusty Angelfish', itemName: 'Rusty Angelfish', itemSname: 'Centropyge Ferrugata', itemPrice: 26.99, itemAvailability: 'Out of Stock', desc: 'This is a description of a Rusty Angelfish.'},
+					   
+				   ]
+				},
+				methods: {
+					itemClicked: function(item) {
+					  this.img = item.itemImg;
+					  this.alt = item.itemAlt;
+					  this.name = item.itemName;
+					  this.sname = item.itemSname;
+					  this.price = item.itemPrice;
+					  this.availability = item.itemAvailability;
+					  this.description = item.desc;
+								$("#my-modal").modal('show');
+					}
+				}
+			});
+		</script>-->
+	
+		
+	</body>
+</html>
+		
