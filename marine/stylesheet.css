@@ -1,21 +1,31 @@
 html {
-    position: relative;
-    min-width: 1024px;
-    min-height: 768px;
-    height: 100%;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  display: table;
+  margin: auto;
 }
-
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
 body {
-  margin-left: -512px;
-  margin-top: -384px;
-  position: absolute;
-  height: 768px;
-  width: 1000px;
-  left: 50%;
-  top: 50%;
-  font-family: Arial, Helvetica, sans-serif;
+  padding-top: 60px;
+  margin: 0px 10px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+  display: table-cell;
+  vertical-align: middle;
 }
 
+/* Navigation */
 .topnav {
   overflow: hidden;
   background-color: white;
@@ -24,7 +34,6 @@ body {
   font-family: DK Lemon Yellow Sun;
   list-style: none;
 }
-
 .topnav a {
   display: inline-block;
   color: black;
@@ -34,29 +43,28 @@ body {
   text-decoration: none;
   font-size: 19px;
 }
-
 .topnav a:hover {
   color: #32aa95;
 }
-
 .active {
   background-color: rgba(50, 170, 149, 0.3);
 }
-
 .topnav .icon {
   display: none;
 }
-
 @media screen and (max-width: 600px) {
-  .topnav a:not(:first-child) {display: none;}
+  .topnav a:not(:first-child) {
+    display: none;
+  }
   .topnav a.icon {
     float: right;
     display: block;
   }
 }
-
 @media screen and (max-width: 600px) {
-  .topnav.responsive {position: relative;}
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
@@ -67,239 +75,197 @@ body {
     display: block;
     text-align: left;
   }
-  
-}
-
-.centertext{
-	text-align: center;
-	margin-top: -2px;
-}
-
-/* Column displays */
-.row {
-    display: -ms-flexbox; /* IE10 */
-    display: flex;
-    -ms-flex-wrap: wrap; /* IE10 */
-    flex-wrap: wrap;
-	padding: 2px 0px 2px 0px;
-}
-
-/* Create four equal columns that sits next to each other */
-.column {
-    -ms-flex: 25%; /* IE10 */
-    flex: 25%;
-    max-width: 24%;
-    padding: 0 4px;
-}
-
-.column img {
-    margin-top: 8px;
-    vertical-align: middle;
-	box-shadow: 0 0 5px rgba(0,0,0,0.2);
-	background-color: rgba(0,0,0,0.0);
-	color: #fff;
 }
 
 
-/* Responsive layout - makes a two column-layout instead of four columns */
-@media screen and (max-width: 800px) {
-    .column {
-        -ms-flex: 50%;
-        flex: 50%;
-        max-width: 50%;
-    }
+/*Content*/
+.section {
+  max-width: 960px;
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container {
+  max-width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.category {
+  display: inline-block;
+  width: 225px;
+  height: 225px;
+  margin: 5px;
+}
+.centertext {
+  text-align: center;
+  margin-top: -2px;
+}
+.pull-right {
+  float: right;
+}
+footer {
+	padding-top: 60px;
 }
 
-/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-    .column {
-        -ms-flex: 100%;
-        flex: 100%;
-        max-width: 100%;
-    }
+/* Drop shadow */
+.shadow {
+  height: 330px;
+}
+.shadow:hover {
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
+
+}
+.shadowmain {
+	height: 260px;
+}
+.shadowmain:hover {
+  box-shadow: 0 8px 12px 0 rgba(0, 0, 0, 0.2);
 }
 
-.shadow{
-	width: 242px;
-	height:350px;
-	padding: 2px 2px 2px 4px;
-}
-
-.shadow:hover{
-	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
-	padding: 2px 2px 2px 4px;
-}
-
-.shadowmain{
-	padding: 2px 2px 2px 4px;
-}
-
-.shadowmain:hover{
-	box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2);
-	padding: 2px 2px 2px 4px;
-}
-
-.pull-right{
-	float:right;
-}
 
 /* Modal */
+
 .modal-open {
-	overflow:hidden;
+  overflow: hidden;
 }
-
-.modal{
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 1050;
-	display: none;
-	overflow: hidden;
-	-webkit-overflow-scrolling: touch;
-	outline: 0;
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
 }
-
 .modal-dialog {
-	position: relative;
-	width: 600px;
-	margin: 150px auto;
+  position: relative;
+  width: 600px;
+  margin: 70px auto;
 }
-
 .modal-content {
-	position: relative;
-	background-color: #fff;
-	background-clip: padding-box;
-	border: 1px solid rgba (0,0,0,.2);
-	border-radius: 6px;
-	outline: 0;
-	box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
+  position: relative;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba (0, 0, 0, .2);
+  border-radius: 6px;
+  outline: 0;
+  box-shadow: 0 3px 9px rgba(0, 0, 0, .5);
 }
-
 .modal-body {
-	position: relative;
-	padding: 0px 30px;
+  position: relative;
+  padding: 0px 30px;
 }
-
 .modal-header {
-	padding: 15px;
+  padding: 15px;
 }
-
 .modal-header .close {
-	margin-top: -2px;
+  margin-top: -2px;
 }
-
 .modal-footer {
-	padding: 15px;
-	text-align: right;
+  padding: 15px;
+  text-align: right;
 }
-
 .fade {
-	opacity: 0;
-	-webkit-transition: opacity .15s linear;
-	transition: opacity .15s linear;
+  opacity: 0;
+  -webkit-transition: opacity .15s linear;
+  transition: opacity .15s linear;
 }
-
 .fade.in {
-	opacity: 1;
+  opacity: 1;
 }
-
 .modal-open .modal {
-	overflow-x: hidden;
-	overflow-y: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
-
 .modal-backdrop {
-	position: fixed;
-	top: 0;
-	right: 0;
-	bottom: 0;
-	left: 0;
-	z-index: 1040;
-	background-color: #000;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: #000;
 }
-
 .modal-backdrop.in {
-	filter: alpha(opacity=50);
-	opacity: .5;
+  filter: alpha(opacity=50);
+  opacity: .5;
 }
-
 .modal-backdrop.fade {
-	filter: alpha(opacity=0);
-	opacity: 0;
+  filter: alpha(opacity=0);
+  opacity: 0;
 }
 
+/*Buttons*/
 button {
-	text-transform: none;
-	font-family: inherit;
-	cursor: default;
-	border: none;
-	background: none;
+  text-transform: none;
+  font-family: inherit;
+  cursor: default;
+  border: none;
+  background: none;
 }
-
 .btn {
-    display: inline-block;
-    padding: 6px 12px;
-    margin-bottom: 0;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 1.42857143;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: middle;
-    -ms-touch-action: manipulation;
-    touch-action: manipulation;
-    cursor: pointer;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    background-image: none;
-    border: 1px solid transparent;
-    border-radius: 4px;
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
 }
-
 .btn-cart {
-	color: #fff;
-	background-color: #337ab7;
-	
+  color: #fff;
+  background-color: #337ab7;
 }
-
-.btn.focus, .btn:focus, .btn:hover {
-    color: #333;
-    text-decoration: none;
+.btn.focus,
+.btn:focus,
+.btn:hover {
+  color: #333;
+  text-decoration: none;
 }
-
 .btn-cart:hover {
-    color: #fff;
-    background-color: #286090;
+  color: #fff;
+  background-color: #286090;
 }
-
 .button.close {
-	-webkit-appearance: none;
-	padding: 0;
-	cursor: pointer;
-	background: none;
-	border: none;
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: none;
+  border: none;
 }
-
 .close {
-	float: right;
-	font-size: 21px;
-	font-weight: 700;
-	line-height: 1;
-	color: #000;
-	text-shadow: 0 1px 0 #fff;
-	filter: alpha(opacity=20);
-	opacity: .2;
+  float: right;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  filter: alpha(opacity=20);
+  opacity: .2;
 }
-
-.close:focus, close:hover {
-	color: #000;
-	text-decoration: none;
-	cursor: pointer;
-	filter: alpha(opacity=50);
-	opacity: .5;
+.close:focus,
+close:hover {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+  filter: alpha(opacity=50);
+  opacity: .5;
 }
 
