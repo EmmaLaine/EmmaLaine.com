@@ -1,216 +1,216 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Angelfish, Dwarf</title>
-<script src="fancies.js"></script>
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<script src="https://unpkg.com/vue"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta charset="UTF-8">
-</head>
-	<body>
-		<div class="topnav" id="myTopnav">
-			<a href="home.html">Home</a>
-			<a href="marinefish.html">Marine Fish</a>
-			<a href="coral.html">Coral</a>
-			<a href="invertplant.html">Invert/Plant</a>
-			<a href="reefrock.html">Reef Rock</a>
-			<a href="products.html">Products</a>
-			<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNav()">&#9776;</a>
-		</div>
-		
-		<h1>Angelfish, Dwarf</h1>
-		
-		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-		totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta 
-		sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
-		consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui 
-		dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora 
-		incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-		
-		<div id="root">
-			<!-- Quick View ITEMS -->
-				<div class="row">
-					  <div class="shadow" v-for="item in items" @click="itemClicked(item)">
-						  <img style="width:100%" :src="item.itemImg" :alt="item.itemAlt" />
-						  <h3 class="centertext">{{ item.itemName }}</h3>
-						  <p class="centertext">{{ item.itemSname }}<br>${{ item.itemPrice }}</p>
 
-					  </div>
-				  </div>
-				  
-			<!-- MODAL -->
-			  <div id="my-modal" class="modal fade">
-				<div class="modal-dialog" role="document">
-				  <div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <head>
+    <title>Angelfish, Dwarf</title>
+    <script src="fancies.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+  </head>
+
+  <body>
+    <div class="topnav" id="myTopnav">
+      <a href="home.html">Home</a>
+      <a href="marinefish.html">Marine Fish</a>
+      <a href="coral.html">Coral</a>
+      <a href="invertplant.html">Invert/Plant</a>
+      <a href="reefrock.html">Reef Rock</a>
+      <a href="products.html">Products</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNav()">&#9776;</a>
+    </div>
+
+    <div class="section">
+      <h1>Angelfish, Dwarf</h1>
+
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+        voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+        modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+    </div>
+    <div id="root">
+      <!-- Quick View ITEMS -->
+      <div class="container">
+        <div class="shadow category" v-for="item in items" @click="itemClicked(item)">
+          <img style="width:100%" :src="item.itemImg" :alt="item.itemAlt" />
+          <h3 class="centertext">{{ item.itemName }}</h3>
+          <p class="centertext">{{ item.itemSname }}<br>${{ item.itemPrice }}</p>
+
+        </div>
+      </div>
+
+      <!-- MODAL -->
+      <div id="my-modal" class="modal fade">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					</div>
-					<div class="modal-body">
-					  <img style="width:100%" :src="img" :alt="alt" />
-					  <h3>{{ name }}</h3>
-					  <p>{{ sname }}<br>${{ price }}<br>{{ availability }}</p>
-					  <p>{{ description }}</p>
-					</div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-cart" >Add to Cart</button>
-					</div>
-				  </div>
-				</div>
-			  </div> 
-			</div>
-		</div>
-		
-		<script>
-			var vm = new Vue({
-				el: '#root',
-				data: {
-				   sku: '',
-				   img: '',
-				   alt: '',
-				   name: '',
-				   sname: '',
-				   price: '',
-				   availability: '',
-				   description: '',
-				   
-				   items: [
-					{
-						sku: 1,
-						itemImg: 'images/bicolor-angel.jpg', 
-						itemAlt: 'Bicolor Angelfish', 
-						itemName: 'Bicolor Angelfish', 
-						itemSname: 'Centropyge Bicolor', 
-						itemPrice: 23.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a Bicolor Angelfish.'
-					},
-					{
-						sku: 2,
-						itemImg: 'images/coralbeauty-angel.jpg',
-						itemAlt: 'Coral Beauty Angelfish',
-						itemName: 'Coral Beauty Angelfish',
-						itemSname: 'Centropyge Bispinosa',
-						itemPrice: 29.99,
-						itemAvailability: 'In Stock',
-						desc: 'This is a description of a Coral Beauty Angelfish.'
-					},
-					{
-						sku: 3,
-						itemImg: 'images/flame-angel.jpg',
-						itemAlt: 'Flame Angelfish',
-						itemName: 'Flame Angelfish',
-						itemSname: 'Centropyge Aurantonotus',
-						itemPrice: 55.99,
-						itemAvailability: 'In Stock',
-						desc: 'This is a description of a Flame Angelfish.'
-					},
-					{
-						sku: 4,
-						itemImg: 'images/fireball-angel.jpg',
-						itemAlt: 'Fireball Angelfish',
-						itemName: 'Fireball Angelfish',
-						itemSname: 'Centropyge Aurantonotus',
-						itemPrice: 89.99,
-						itemAvailability: 'In Stock',
-						desc: 'This is a description of a Fireball Angelfish.'
-					},
-					{
-						sku: 5,
-						itemImg: 'images/halfblack-angel.jpg',
-						itemAlt: 'Half Black Angelfish',
-						itemName: 'Half Black Angelfish',
-						itemSname: 'Centropyge Vroliki',
-						itemPrice: 26.99,
-						itemAvailability: 'In Stock',
-						desc: 'This is a description of a Half Black Angelfish.'
-					},
-					{
-						sku: 6,
-						itemImg: 'images/lemonpeel-angel.jpg',
-						itemAlt: 'Lemonpeel Angelfish',
-						itemName: 'Lemonpeel Angelfish',
-						itemSname: 'Centropyge Flavissima',
-						itemPrice: 39.99,
-						itemAvailability: 'In Stock',
-						desc: 'This is a description of a  Lemonpeel Angelfish.'
-					},
-					{
-						sku: 7,
-						itemImg: 'images/pygmyyellowtail-angel.jpg',
-						itemAlt: 'Pygmy Yellowtail Angelfish',
-						itemName: 'Pygmy Yellowtail Angelfish',
-						itemSname: 'Centropyge Flavicauda',
-						itemPrice: 30.99,
-						itemAvailability: 'Out of Stock',
-						desc: 'This is a description of a Pygmy Yellowtail Angelfish.'
-					},
-					{
-						sku: 8,
-						itemImg: 'images/redstripe-angel.jpg',
-						itemAlt: 'Red Stripe Angelfish',
-						itemName: 'Red Stripe Angelfish',
-						itemSname: 'Centropyge Eibli',
-						itemPrice: 36.99,
-						itemAvailability: 'Out of Stock',
-						desc: 'This is a description of a Red Stripe Angelfish.'
-					},
-					{
-						sku: 9,
-						itemImg: 'images/rusty-angel.jpg',
-						itemAlt: 'Rusty Angelfish',
-						itemName: 'Rusty Angelfish',
-						itemSname: 'Centropyge Ferrugata',
-						itemPrice: 26.99,
-						itemAvailability: 'Out of Stock',
-						desc: 'This is a description of a Rusty Angelfish.'
-					},
-					{
-						sku: 10,
-						itemImg: 'images/tibicen-angel.jpg',
-						itemAlt: 'Tibecen Angelfish',
-						itemName: 'Tibecen Angelfish',
-						itemSname: 'Centropyge Tibicin',
-						itemPrice: 24.99,
-						itemAvailability: 'Out of Stock',
-						desc: 'This is a description of a  Tibecen Angelfish.'
-					},
-					{
-						sku: 11,
-						itemImg: 'images/yellow-angel.jpg',
-						itemAlt: 'Yellow Angelfish',
-						itemName: 'Yellow Angelfish',
-						itemSname: 'Centropyge Heraldi',
-						itemPrice: 21.99,
-						itemAvailability: 'Out of Stock',
-						desc: 'This is a description of a Yellow Angelfish.'
-					},
-					
-				   ]
-				},
-				methods: {
-					itemClicked: function(item) {
-					  this.img = item.itemImg;
-					  this.alt = item.itemAlt;
-					  this.name = item.itemName;
-					  this.sname = item.itemSname;
-					  this.price = item.itemPrice;
-					  this.availability = item.itemAvailability;
-					  this.description = item.desc;
-								$("#my-modal").modal('show');
-					}
-				}
-			});
-		</script>
-		
+            </div>
+            <div class="modal-body">
+              <img style="width:100%" :src="img" :alt="alt" />
+              <h3>{{ name }}</h3>
+              <p>{{ sname }}<br>${{ price }}<br>{{ availability }}</p>
+              <p>{{ description }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
 
-		
-		
-			
-		<footer class="centertext"><a href="">About Us</a>  -  <a href="">Privacy Policy</a>  -  <a href="">Returns Policy</a>  -  <a href="">Shipping and Payment</a>  -  <a href="">Terms of Use</a></footer>		
-	</body>
+    <script>
+      var vm = new Vue({
+        el: '#root',
+        data: {
+          sku: '',
+          img: '',
+          alt: '',
+          name: '',
+          sname: '',
+          price: '',
+          availability: '',
+          description: '',
+
+          items: [{
+              sku: 1,
+              itemImg: 'images/bicolor-angel.jpg',
+              itemAlt: 'Bicolor Angelfish',
+              itemName: 'Bicolor Angelfish',
+              itemSname: 'Centropyge Bicolor',
+              itemPrice: 43.99,
+              itemAvailability: 'In Stock',
+              desc: 'The Bicolor Angelfish grows to 6" in captivity and requires a minimum of 70 gallons. It is semi-aggressive and tends to nip at corals and clam mantles so it is not well sutied for a reef aquarium. The Bicolor Angelfish likes to graze on plenty of live rock and eats Spirulina, marine algae, mysis shrimp and other frozen meaty shrimp.'
+            },
+            {
+              sku: 2,
+              itemImg: 'images/coralbeauty-angel.jpg',
+              itemAlt: 'Coral Beauty Angelfish',
+              itemName: 'Coral Beauty Angelfish',
+              itemSname: 'Centropyge Bispinosa',
+              itemPrice: 29.99,
+              itemAvailability: 'In Stock',
+              desc: 'The Coral Beauty Angelfish is one of the most common and easy to care for angelfish. It grows to a max size of 4" in captivity and requires a minimum of 70 gallons with lots of hiding places. The Coral Beauty likes to graze on live rock and tends to nip at corals and sessile invertebrates making them not a good reef dweller. Being omnivores they eat a mixture of Spirulina, marine algae and meaty foods such as mysis or brine shrimp.'
+            },
+            {
+              sku: 3,
+              itemImg: 'images/flame-angel.jpg',
+              itemAlt: 'Flame Angelfish',
+              itemName: 'Flame Angelfish',
+              itemSname: 'Centropyge Aurantonotus',
+              itemPrice: 55.99,
+              itemAvailability: 'In Stock',
+              desc: 'These beautiful fish grow to 4" in captivity and require a minimum of 70 gallons in a well established aquarium. Like many other angelfish the Flame Angelfish grazes on live rock and eats a variety of marine algae and meaty shrimps such as mysis or brine. They do tend to nip at coral and sessile invertebrates so they should be added to reef aquariums with caution.'
+            },
+            {
+              sku: 4,
+              itemImg: 'images/fireball-angel.jpg',
+              itemAlt: 'Fireball Angelfish',
+              itemName: 'Fireball Angelfish',
+              itemSname: 'Centropyge Aurantonotus',
+              itemPrice: 89.99,
+              itemAvailability: 'In Stock',
+              desc: 'The Fireball Angelfish grows to 3" and requires at least a 55 gallon tank with plenty of hiding place and grazing areas. They tend to nip at SPS and some polyps. They eat a variety of marine algae and meaty foods such as mysis or brine shrimp.'
+            },
+            {
+              sku: 5,
+              itemImg: 'images/halfblack-angel.jpg',
+              itemAlt: 'Half Black Angelfish',
+              itemName: 'Half Black Angelfish',
+              itemSname: 'Centropyge Vroliki',
+              itemPrice: 26.99,
+              itemAvailability: 'In Stock',
+              desc: 'The Half Black Angelfish grows to 4" and requires a minimum of 70 gallons with plenty of live rock to graze on and hide in. They are reef safe with caution as they are prone to nipping at corals and sessile invertebrates. The Half Black Angelfish can be fed a mixture of marine algae and meaty foods such as mysis or brine shrimp.'
+            },
+            {
+              sku: 6,
+              itemImg: 'images/lemonpeel-angel.jpg',
+              itemAlt: 'Lemonpeel Angelfish',
+              itemName: 'Lemonpeel Angelfish',
+              itemSname: 'Centropyge Flavissima',
+              itemPrice: 39.99,
+              itemAvailability: 'In Stock',
+              desc: 'The Lemonpeel Angelfish can be told apart from the False Lemonpeel Angelfish as it has beautiful light blue around the eyes and gills and on the tips of the pectoral, dorsal, caudal and anal fins. It grows to 5.5" and needs a minimum of 70 gallons with plenty of hiding places and areas to graze. It tends to nip at large stony corals and clam mantles and should be added to reef aquariums with caution. The Lemonpeel Angelfish needs more seaweed and marine algae than other angelfish along with the meaty mysis or brine shrimp.'
+            },
+            {
+              sku: 7,
+              itemImg: 'images/pygmyyellowtail-angel.jpg',
+              itemAlt: 'Pygmy Yellowtail Angelfish',
+              itemName: 'Pygmy Yellowtail',
+              itemSname: 'Centropyge Flavicauda',
+              itemPrice: 30.99,
+              itemAvailability: 'Out of Stock',
+              desc: 'This Pygmy Yellowtail Angelfish grows to 3" and needs a minimum of 55 gallon tank. It needs plenty of hiding places and areas to graze. It should be added to reef aquariums with caution as it tends to nip at corals and sessile invertebrates. It is not recommended to house the Pygmy Yellowtail with other Dwarf Angels or docile fish as it may harass or even kill them, though one male can be kept with several females. They eat Spirulina, marine algae, mysis shrimp, brine shrimp and other meaty foods.'
+            },
+            {
+              sku: 8,
+              itemImg: 'images/redstripe-angel.jpg',
+              itemAlt: 'Red Stripe Angelfish',
+              itemName: 'Red Stripe Angelfish',
+              itemSname: 'Centropyge Eibli',
+              itemPrice: 36.99,
+              itemAvailability: 'Out of Stock',
+              desc: 'The Red Stripe Angelfish or Eibli Angelfish grows to a max size of 4" in captivity and requires a minimum of 70 gallons with lots of hiding places. It likes to graze on live rock and tends to nip at corals and sessile invertebrates making them not a good reef dweller. Being omnivores they eat a mixture of Spirulina, marine algae and meaty foods such as mysis or brine shrimp.'
+            },
+            {
+              sku: 9,
+              itemImg: 'images/rusty-angel.jpg',
+              itemAlt: 'Rusty Angelfish',
+              itemName: 'Rusty Angelfish',
+              itemSname: 'Centropyge Ferrugata',
+              itemPrice: 26.99,
+              itemAvailability: 'Out of Stock',
+              desc: 'The Rusty Angelfish grows to 4" and requires a minimum of 70 gallons with plenty of live rock to graze on and hide in. They are reef safe with caution as they are prone to nipping at corals and sessile invertebrates. The Rusty Angelfish can be fed a mixture of marine algae and meaty foods such as mysis or brine shrimp. They are best kept as the only Dwarf Angelfish in the tank.'
+            },
+            {
+              sku: 10,
+              itemImg: 'images/tibicen-angel.jpg',
+              itemAlt: 'Tibecen Angelfish',
+              itemName: 'Tibecen Angelfish',
+              itemSname: 'Centropyge Tibicin',
+              itemPrice: 24.99,
+              itemAvailability: 'Out of Stock',
+              desc: 'The  Tibecen Angelfish also known as the Keyhole Angelfish grows to 8" and requires at least a 70 gallon aquarium. They tend to nip at corals and sessile invertebrates. They eat Spirulina, marine algae, mysis and brine shrimp and will also graze on filamentous algae and diatoms in the aquarium.'
+            },
+            {
+              sku: 11,
+              itemImg: 'images/yellow-angel.jpg',
+              itemAlt: 'Yellow Angelfish',
+              itemName: 'Yellow Angelfish',
+              itemSname: 'Centropyge Heraldi',
+              itemPrice: 21.99,
+              itemAvailability: 'Out of Stock',
+              desc: 'The Yellow Angelfish also known as the False Lemonpeel Angelfish is all bright yellow in color. It grows to 4" and requires a 70 gallon aquarium with plenty of live rock. They are prone to nipping at some stony corals, soft corals and clam mantles. They eat a diet of Spirulina, marine algae, mysis and other frozen meaty shrimp.'
+            },
+
+          ]
+        },
+        methods: {
+          itemClicked: function(item) {
+            this.img = item.itemImg;
+            this.alt = item.itemAlt;
+            this.name = item.itemName;
+            this.sname = item.itemSname;
+            this.price = item.itemPrice;
+            this.availability = item.itemAvailability;
+            this.description = item.desc;
+            $("#my-modal").modal('show');
+          }
+        }
+      });
+
+    </script>
+
+
+
+
+
+    <footer class="centertext"><a href="">About Us</a> - <a href="">Privacy Policy</a> - <a href="">Returns Policy</a> - <a href="">Shipping and Payment</a> - <a href="">Terms of Use</a></footer>
+  </body>
+
 </html>
-		

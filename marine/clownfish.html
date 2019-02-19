@@ -1,310 +1,311 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Clownfish</title>
-<script src="fancies.js"></script>
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<script src="https://unpkg.com/vue"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta charset="UTF-8"> 
-</head>
-	<body>
-		<div class="topnav" id="myTopnav">
-			<a href="home.html">Home</a>
-			<a href="marinefish.html">Marine Fish</a>
-			<a href="coral.html">Coral</a>
-			<a href="invertplant.html">Invert/Plant</a>
-			<a href="reefrock.html">Reef Rock</a>
-			<a href="products.html">Products</a>
-			<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNav()">&#9776;</a>
-		</div>
-		
-		<h1>Clownfish</h1>
-		
-		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-		totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta 
-		sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
-		consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui 
-		dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora 
-		incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
 
-		
-		<div id="root">
-			<!-- Quick View ITEMS -->
-				<div class="row">
-					  <div class="shadow" v-for="item in items" @click="itemClicked(item)">
-						  <img style="width:100%" :src="item.itemImg" :alt="item.itemAlt" />
-						  <h3 class="centertext">{{ item.itemName }}</h3>
-						  <p class="centertext">{{ item.itemSname }}<br>${{ item.itemPrice }}</p>
+  <head>
+    <title>Clownfish</title>
+    <script src="fancies.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+  </head>
 
-					  </div>
-				  </div>
-				  
-			<!-- MODAL -->
-			  <div id="my-modal" class="modal fade">
-				<div class="modal-dialog" role="document">
-				  <div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <body>
+    <div class="topnav" id="myTopnav">
+      <a href="home.html">Home</a>
+      <a href="marinefish.html">Marine Fish</a>
+      <a href="coral.html">Coral</a>
+      <a href="invertplant.html">Invert/Plant</a>
+      <a href="reefrock.html">Reef Rock</a>
+      <a href="products.html">Products</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNav()">&#9776;</a>
+    </div>
+
+    <div class="section">
+      <h1>Clownfish</h1>
+
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+        voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+        modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+    </div>
+
+    <div id="root">
+      <!-- Quick View ITEMS -->
+      <div class="container">
+        <div class="shadow category" v-for="item in items" @click="itemClicked(item)">
+          <img style="width:100%" :src="item.itemImg" :alt="item.itemAlt" />
+          <h3 class="centertext">{{ item.itemName }}</h3>
+          <p class="centertext">{{ item.itemSname }}<br>${{ item.itemPrice }}</p>
+
+        </div>
+      </div>
+
+      <!-- MODAL -->
+      <div id="my-modal" class="modal fade">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					</div>
-					<div class="modal-body">
-					  <img style="width:100%" :src="img" :alt="alt" />
-					  <h3>{{ name }}</h3>
-					  <p>{{ sname }}<br>${{ price }}<br>{{ availability }}</p>
-					  <p>{{ description }}</p>
-					</div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-cart" >Add to Cart</button>
-					</div>
-				  </div>
-				</div>
-			  </div> 
-			</div>
-		</div>
-		
-		<script>
-			var vm = new Vue({
-				el: '#root',
-				data: {
-				   sku: '',
-				   img: '',
-				   alt: '',
-				   name: '',
-				   sname: '',
-				   price: '',
-				   availability: '',
-				   description: '',
-				   
-				   items: [
-					{
-						sku: 89,
-						itemImg: 'images/black-white-ocellaris.jpg', 
-						itemAlt: 'Black and White Ocellaris Clownfish', 
-						itemName: 'Black and White Ocellaris Clownfish', 
-						itemSname: 'Amphiprion Ocellaris', 
-						itemPrice: 45.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a Black and White Ocellaris Clownfish.'
-					},
-					{
-						sku: 90,
-						itemImg: 'images/black-ice-ocellaris.jpg', 
-						itemAlt: 'Black Ice Ocellaris Clownfish', 
-						itemName: 'Black Ice Ocellaris Clownfish', 
-						itemSname: 'Amphiprion Ocellaris', 
-						itemPrice: 65.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a Black Ice Ocellaris.'
-					},
-					{
-						sku: 91,
-						itemImg: 'images/cinnamon.jpg', 
-						itemAlt: 'Cinnamon Clownfish', 
-						itemName: 'Cinnamon Clownfish', 
-						itemSname: 'Amphiprion Melanopus', 
-						itemPrice: 19.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 92,
-						itemImg: 'images/clarkii.jpg', 
-						itemAlt: 'Clarkii Clownfish', 
-						itemName: 'Clarkii Clownfish', 
-						itemSname: 'Amphiprion Clarkii', 
-						itemPrice: 20.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 93,
-						itemImg: 'images/fiji-barberi.jpg', 
-						itemAlt: 'Fiji Barberi Clownfish', 
-						itemName: 'Fiji Barberi Clownfish', 
-						itemSname: 'Amphiprion Barberi', 
-						itemPrice: 20.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 94,
-						itemImg: 'images/galaxy-clarkii.jpg', 
-						itemAlt: 'Galaxy Clarkii Clownfish', 
-						itemName: 'Galaxy Clarkii Clownfish', 
-						itemSname: 'Amphiprion Clarkii', 
-						itemPrice: 58.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 95,
-						itemImg: 'images/maroon.jpg', 
-						itemAlt: 'Maroon Clownfish', 
-						itemName: 'Maroon Clownfish', 
-						itemSname: 'Premnas Biaculeatus', 
-						itemPrice: 25.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 96,
-						itemImg: 'images/midnight-ocellaris.jpg', 
-						itemAlt: 'Midnight Ocellaris Clownfish', 
-						itemName: 'Midnight Ocellaris Clownfish', 
-						itemSname: 'Amphiprion Ocellaris', 
-						itemPrice: 48.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 97,
-						itemImg: 'images/ocellaris-clown.jpg', 
-						itemAlt: 'Ocellaris Clownfish', 
-						itemName: 'Ocellaris Clownfish', 
-						itemSname: 'Amphiprion Ocellaris', 
-						itemPrice: 15.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 98,
-						itemImg: 'images/orange-skunk.jpg', 
-						itemAlt: 'Orange Skunk Clownfish', 
-						itemName: 'Orange Skunk Clownfish', 
-						itemSname: 'Amphiprion Sandaracinos', 
-						itemPrice: 22.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 99,
-						itemImg: 'images/pearl-eye-clarkii.jpg', 
-						itemAlt: 'Pearl Eye Clarkii Clownfish', 
-						itemName: 'Pearl Eye Clarkii Clownfish', 
-						itemSname: 'Amphiprion Clarkii', 
-						itemPrice: 26.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 100,
-						itemImg: 'images/picasso.jpg', 
-						itemAlt: 'Picasso Percula Clownfish', 
-						itemName: 'Picasso Percula Clownfish', 
-						itemSname: 'Amphiprion Percula', 
-						itemPrice: 59.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 101,
-						itemImg: 'images/premium-picasso.jpg', 
-						itemAlt: 'Premium Picasso Clownfish', 
-						itemName: 'Premium Picasso Clownfish', 
-						itemSname: 'Amphiprion Percula', 
-						itemPrice: 90.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 102,
-						itemImg: 'images/red-saddle.jpg', 
-						itemAlt: 'Red Saddle Clownfish', 
-						itemName: 'Red Saddle Clownfish', 
-						itemSname: 'Amphiprion Ephippium', 
-						itemPrice: 25.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 103,
-						itemImg: 'images/saddleback.jpg', 
-						itemAlt: 'Saddleback Clownfish', 
-						itemName: 'Saddleback Clownfish', 
-						itemSname: 'Amphiprion Polymnus', 
-						itemPrice: 25.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 104,
-						itemImg: 'images/snowflake-ocellaris.jpg', 
-						itemAlt: 'Snowflake Ocellaris Clownfish', 
-						itemName: 'Snowflake Ocellaris Clownfish', 
-						itemSname: 'Amphiprion Ocellaris', 
-						itemPrice: 35.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 105,
-						itemImg: 'images/snow-onyx.jpg', 
-						itemAlt: 'Snow Onyx Clownfish', 
-						itemName: 'Snow Onyx Clownfish', 
-						itemSname: 'Amphriprion Ocellaris x Amphriprion Percula', 
-						itemPrice: 48.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 106,
-						itemImg: 'images/tomato.jpg', 
-						itemAlt: 'Tomato Clownfish', 
-						itemName: 'Tomato Clownfish', 
-						itemSname: 'Amphiprion Frenatus', 
-						itemPrice: 15.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 107,
-						itemImg: 'images/true-percula.jpg', 
-						itemAlt: 'True Percula Clownfish', 
-						itemName: 'True Percula Clownfish', 
-						itemSname: 'Amphiprion Percula', 
-						itemPrice: 20.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 108,
-						itemImg: 'images/two-banded.jpg', 
-						itemAlt: 'Two Banded Clownfish', 
-						itemName: 'Two Banded Clownfish', 
-						itemSname: 'Amphiprion Bicinctus', 
-						itemPrice: 26.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 109,
-						itemImg: 'images/yellowstripe-maroon.jpg', 
-						itemAlt: 'Yellowstripe Maroon Clownfish', 
-						itemName: 'Yellowstripe Maroon Clownfish', 
-						itemSname: 'Premnas Biaculeatus', 
-						itemPrice: 25.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-				   ]
-				},
-				methods: {
-					itemClicked: function(item) {
-					  this.img = item.itemImg;
-					  this.alt = item.itemAlt;
-					  this.name = item.itemName;
-					  this.sname = item.itemSname;
-					  this.price = item.itemPrice;
-					  this.availability = item.itemAvailability;
-					  this.description = item.desc;
-								$("#my-modal").modal('show');
-					}
-				}
-			});
-		</script>
-		<footer class="centertext"><a href="">About Us</a>  -  <a href="">Privacy Policy</a>  -  <a href="">Returns Policy</a>  -  <a href="">Shipping and Payment</a>  -  <a href="">Terms of Use</a></footer>
-	</body>
+            </div>
+            <div class="modal-body">
+              <img style="width:100%" :src="img" :alt="alt" />
+              <h3>{{ name }}</h3>
+              <p>{{ sname }}<br>${{ price }}<br>{{ availability }}</p>
+              <p>{{ description }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      var vm = new Vue({
+        el: '#root',
+        data: {
+          sku: '',
+          img: '',
+          alt: '',
+          name: '',
+          sname: '',
+          price: '',
+          availability: '',
+          description: '',
+
+          items: [{
+              sku: 89,
+              itemImg: 'images/black-white-ocellaris.jpg',
+              itemAlt: 'Black and White Ocellaris Clownfish',
+              itemName: 'Black and White Ocellaris',
+              itemSname: 'Amphiprion Ocellaris',
+              itemPrice: 45.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a Black and White Ocellaris Clownfish.'
+            },
+            {
+              sku: 90,
+              itemImg: 'images/black-ice-ocellaris.jpg',
+              itemAlt: 'Black Ice Ocellaris Clownfish',
+              itemName: 'Black Ice Ocellaris',
+              itemSname: 'Amphiprion Ocellaris',
+              itemPrice: 65.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a Black Ice Ocellaris.'
+            },
+            {
+              sku: 91,
+              itemImg: 'images/cinnamon.jpg',
+              itemAlt: 'Cinnamon Clownfish',
+              itemName: 'Cinnamon Clownfish',
+              itemSname: 'Amphiprion Melanopus',
+              itemPrice: 19.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 92,
+              itemImg: 'images/clarkii.jpg',
+              itemAlt: 'Clarkii Clownfish',
+              itemName: 'Clarkii Clownfish',
+              itemSname: 'Amphiprion Clarkii',
+              itemPrice: 20.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 93,
+              itemImg: 'images/fiji-barberi.jpg',
+              itemAlt: 'Fiji Barberi Clownfish',
+              itemName: 'Fiji Barberi Clownfish',
+              itemSname: 'Amphiprion Barberi',
+              itemPrice: 20.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 94,
+              itemImg: 'images/galaxy-clarkii.jpg',
+              itemAlt: 'Galaxy Clarkii Clownfish',
+              itemName: 'Galaxy Clarkii Clownfish',
+              itemSname: 'Amphiprion Clarkii',
+              itemPrice: 58.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 95,
+              itemImg: 'images/maroon.jpg',
+              itemAlt: 'Maroon Clownfish',
+              itemName: 'Maroon Clownfish',
+              itemSname: 'Premnas Biaculeatus',
+              itemPrice: 25.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 96,
+              itemImg: 'images/midnight-ocellaris.jpg',
+              itemAlt: 'Midnight Ocellaris Clownfish',
+              itemName: 'Midnight Ocellaris',
+              itemSname: 'Amphiprion Ocellaris',
+              itemPrice: 48.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 97,
+              itemImg: 'images/ocellaris-clown.jpg',
+              itemAlt: 'Ocellaris Clownfish',
+              itemName: 'Ocellaris Clownfish',
+              itemSname: 'Amphiprion Ocellaris',
+              itemPrice: 15.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 98,
+              itemImg: 'images/orange-skunk.jpg',
+              itemAlt: 'Orange Skunk Clownfish',
+              itemName: 'Orange Skunk Clownfish',
+              itemSname: 'Amphiprion Sandaracinos',
+              itemPrice: 22.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 99,
+              itemImg: 'images/pearl-eye-clarkii.jpg',
+              itemAlt: 'Pearl Eye Clarkii Clownfish',
+              itemName: 'Pearl Eye Clarkii',
+              itemSname: 'Amphiprion Clarkii',
+              itemPrice: 26.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 100,
+              itemImg: 'images/picasso.jpg',
+              itemAlt: 'Picasso Percula Clownfish',
+              itemName: 'Picasso Percula Clownfish',
+              itemSname: 'Amphiprion Percula',
+              itemPrice: 59.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 101,
+              itemImg: 'images/premium-picasso.jpg',
+              itemAlt: 'Premium Picasso Clownfish',
+              itemName: 'Premium Picasso',
+              itemSname: 'Amphiprion Percula',
+              itemPrice: 90.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 102,
+              itemImg: 'images/red-saddle.jpg',
+              itemAlt: 'Red Saddle Clownfish',
+              itemName: 'Red Saddle Clownfish',
+              itemSname: 'Amphiprion Ephippium',
+              itemPrice: 25.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 103,
+              itemImg: 'images/saddleback.jpg',
+              itemAlt: 'Saddleback Clownfish',
+              itemName: 'Saddleback Clownfish',
+              itemSname: 'Amphiprion Polymnus',
+              itemPrice: 25.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 104,
+              itemImg: 'images/snowflake-ocellaris.jpg',
+              itemAlt: 'Snowflake Ocellaris Clownfish',
+              itemName: 'Snowflake Ocellaris',
+              itemSname: 'Amphiprion Ocellaris',
+              itemPrice: 35.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 105,
+              itemImg: 'images/snow-onyx.jpg',
+              itemAlt: 'Snow Onyx Clownfish',
+              itemName: 'Snow Onyx Clownfish',
+              itemSname: 'Amphriprion Ocellaris x Percula',
+              itemPrice: 48.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 106,
+              itemImg: 'images/tomato.jpg',
+              itemAlt: 'Tomato Clownfish',
+              itemName: 'Tomato Clownfish',
+              itemSname: 'Amphiprion Frenatus',
+              itemPrice: 15.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 107,
+              itemImg: 'images/true-percula.jpg',
+              itemAlt: 'True Percula Clownfish',
+              itemName: 'True Percula Clownfish',
+              itemSname: 'Amphiprion Percula',
+              itemPrice: 20.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 108,
+              itemImg: 'images/two-banded.jpg',
+              itemAlt: 'Two Banded Clownfish',
+              itemName: 'Two Banded Clownfish',
+              itemSname: 'Amphiprion Bicinctus',
+              itemPrice: 26.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 109,
+              itemImg: 'images/yellowstripe-maroon.jpg',
+              itemAlt: 'Yellowstripe Maroon Clownfish',
+              itemName: 'Yellowstripe Maroon',
+              itemSname: 'Premnas Biaculeatus',
+              itemPrice: 25.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+          ]
+        },
+        methods: {
+          itemClicked: function(item) {
+            this.img = item.itemImg;
+            this.alt = item.itemAlt;
+            this.name = item.itemName;
+            this.sname = item.itemSname;
+            this.price = item.itemPrice;
+            this.availability = item.itemAvailability;
+            this.description = item.desc;
+            $("#my-modal").modal('show');
+          }
+        }
+      });
+
+    </script>
+    <footer class="centertext"><a href="">About Us</a> - <a href="">Privacy Policy</a> - <a href="">Returns Policy</a> - <a href="">Shipping and Payment</a> - <a href="">Terms of Use</a></footer>
+  </body>
+
 </html>

@@ -1,158 +1,160 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Cardinalfish</title>
-<script src="fancies.js"></script>
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
-<script src="https://unpkg.com/vue"></script>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<meta charset="UTF-8"> 
-</head>
-	<body>
-		<div class="topnav" id="myTopnav">
-			<a href="home.html">Home</a>
-			<a href="marinefish.html">Marine Fish</a>
-			<a href="coral.html">Coral</a>
-			<a href="invertplant.html">Invert/Plant</a>
-			<a href="reefrock.html">Reef Rock</a>
-			<a href="products.html">Products</a>
-			<a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNav()">&#9776;</a>
-		</div>
-		
-		<h1>Cardinalfish</h1>
-		
-		<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, 
-		totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta 
-		sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia 
-		consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui 
-		dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora 
-		incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
-		
-		<div id="root">
-			<!-- Quick View ITEMS -->
-				<div class="row">
-					  <div class="shadow" v-for="item in items" @click="itemClicked(item)">
-						  <img style="width:100%" :src="item.itemImg" :alt="item.itemAlt" />
-						  <h3 class="centertext">{{ item.itemName }}</h3>
-						  <p class="centertext">{{ item.itemSname }}<br>${{ item.itemPrice }}</p>
 
-					  </div>
-				  </div>
-				  
-			<!-- MODAL -->
-			  <div id="my-modal" class="modal fade">
-				<div class="modal-dialog" role="document">
-				  <div class="modal-content">
-					<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <head>
+    <title>Cardinalfish</title>
+    <script src="fancies.js"></script>
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <script src="https://unpkg.com/vue"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <meta charset="UTF-8">
+  </head>
+
+  <body>
+    <div class="topnav" id="myTopnav">
+      <a href="home.html">Home</a>
+      <a href="marinefish.html">Marine Fish</a>
+      <a href="coral.html">Coral</a>
+      <a href="invertplant.html">Invert/Plant</a>
+      <a href="reefrock.html">Reef Rock</a>
+      <a href="products.html">Products</a>
+      <a href="javascript:void(0);" style="font-size:15px;" class="icon" onclick="responsiveNav()">&#9776;</a>
+    </div>
+
+    <div class="section">
+      <h1>Cardinalfish</h1>
+
+      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia
+        voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius
+        modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+    </div>
+
+    <div id="root">
+      <!-- Quick View ITEMS -->
+      <div class="container">
+        <div class="shadow category" v-for="item in items" @click="itemClicked(item)">
+          <img style="width:100%" :src="item.itemImg" :alt="item.itemAlt" />
+          <h3 class="centertext">{{ item.itemName }}</h3>
+          <p class="centertext">{{ item.itemSname }}<br>${{ item.itemPrice }}</p>
+
+        </div>
+      </div>
+
+      <!-- MODAL -->
+      <div id="my-modal" class="modal fade">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					</div>
-					<div class="modal-body">
-					  <img style="width:100%" :src="img" :alt="alt" />
-					  <h3>{{ name }}</h3>
-					  <p>{{ sname }}<br>${{ price }}<br>{{ availability }}</p>
-					  <p>{{ description }}</p>
-					</div>
-					<div class="modal-footer">
-					  <button type="button" class="btn btn-cart" >Add to Cart</button>
-					</div>
-				  </div>
-				</div>
-			  </div> 
-			</div>
-		</div>
-		
-		<script>
-			var vm = new Vue({
-				el: '#root',
-				data: {
-				   sku: '',
-				   img: '',
-				   alt: '',
-				   name: '',
-				   sname: '',
-				   price: '',
-				   availability: '',
-				   description: '',
-				   
-				   items: [
-					{
-						sku: 77,
-						itemImg: 'images/banggai-cardinal.jpg', 
-						itemAlt: 'Banggai Cardinalfish', 
-						itemName: 'Banggai Cardinalfish', 
-						itemSname: 'Pterapogon kauderni', 
-						itemPrice: 13.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'Banggai Cardinals are easy to care for. They show aggressive behavior towards same species so it is best to keep one or a bonded pair. Banggai Cardinals should be houses with gentle fish as they are relatively slow swimmers. Plenty of caves as well as an open swimming area should be provided. These beautiful swimmers are reef safe. They can be fed a carnivorous diet that includes brine shrimp, mysis shrimp, feeder shrimp, and bloodworms.'
-					},
-					{
-						sku: 78,
-						itemImg: 'http://via.placeholder.com/242x242', 
-						itemAlt: 'Cardinalfish', 
-						itemName: 'Cardinalfish', 
-						itemSname: 'Pterapogon', 
-						itemPrice: 14.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 79,
-						itemImg: 'http://via.placeholder.com/242x242', 
-						itemAlt: 'Cardinalfish', 
-						itemName: 'Cardinalfish', 
-						itemSname: 'Pterapogon', 
-						itemPrice: 17.99, 
-						itemAvailability: 'Out of Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 80,
-						itemImg: 'http://via.placeholder.com/242x242h', 
-						itemName: 'Cardinalfish', 
-						itemSname: 'Pterapogon', 
-						itemPrice: 21.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 81,
-						itemImg: 'http://via.placeholder.com/242x242', 
-						itemAlt: 'Cardinalfish', 
-						itemName: 'Cardinalfish', 
-						itemSname: 'Pterapogon', 
-						itemPrice: 14.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-					{
-						sku: 82,
-						itemImg: 'http://via.placeholder.com/242x242', 
-						itemAlt: 'Cardinalfish', 
-						itemName: 'Cardinalfish', 
-						itemSname: 'Pterapogon', 
-						itemPrice: 44.99, 
-						itemAvailability: 'In Stock', 
-						desc: 'This is a description of a .'
-					},
-				   ]
-				},
-				methods: {
-					itemClicked: function(item) {
-					  this.img = item.itemImg;
-					  this.alt = item.itemAlt;
-					  this.name = item.itemName;
-					  this.sname = item.itemSname;
-					  this.price = item.itemPrice;
-					  this.availability = item.itemAvailability;
-					  this.description = item.desc;
-								$("#my-modal").modal('show');
-					}
-				}
-			});
-		</script>
-		<footer class="centertext"><a href="">About Us</a>  -  <a href="">Privacy Policy</a>  -  <a href="">Returns Policy</a>  -  <a href="">Shipping and Payment</a>  -  <a href="">Terms of Use</a></footer>
-	</body>
+            </div>
+            <div class="modal-body">
+              <img style="width:100%" :src="img" :alt="alt" />
+              <h3>{{ name }}</h3>
+              <p>{{ sname }}<br>${{ price }}<br>{{ availability }}</p>
+              <p>{{ description }}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-cart">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script>
+      var vm = new Vue({
+        el: '#root',
+        data: {
+          sku: '',
+          img: '',
+          alt: '',
+          name: '',
+          sname: '',
+          price: '',
+          availability: '',
+          description: '',
+
+          items: [{
+              sku: 77,
+              itemImg: 'images/banggai-cardinal.jpg',
+              itemAlt: 'Banggai Cardinalfish',
+              itemName: 'Banggai Cardinalfish',
+              itemSname: 'Pterapogon kauderni',
+              itemPrice: 13.99,
+              itemAvailability: 'In Stock',
+              desc: 'Banggai Cardinals are easy to care for. They show aggressive behavior towards same species so it is best to keep one or a bonded pair. Banggai Cardinals should be houses with gentle fish as they are relatively slow swimmers. Plenty of caves as well as an open swimming area should be provided. These beautiful swimmers are reef safe. They can be fed a carnivorous diet that includes brine shrimp, mysis shrimp, feeder shrimp, and bloodworms.'
+            },
+            {
+              sku: 78,
+              itemImg: 'http://via.placeholder.com/242x242',
+              itemAlt: 'Cardinalfish',
+              itemName: 'Cardinalfish',
+              itemSname: 'Pterapogon',
+              itemPrice: 14.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 79,
+              itemImg: 'http://via.placeholder.com/242x242',
+              itemAlt: 'Cardinalfish',
+              itemName: 'Cardinalfish',
+              itemSname: 'Pterapogon',
+              itemPrice: 17.99,
+              itemAvailability: 'Out of Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 80,
+              itemImg: 'http://via.placeholder.com/242x242h',
+              itemName: 'Cardinalfish',
+              itemSname: 'Pterapogon',
+              itemPrice: 21.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 81,
+              itemImg: 'http://via.placeholder.com/242x242',
+              itemAlt: 'Cardinalfish',
+              itemName: 'Cardinalfish',
+              itemSname: 'Pterapogon',
+              itemPrice: 14.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+            {
+              sku: 82,
+              itemImg: 'http://via.placeholder.com/242x242',
+              itemAlt: 'Cardinalfish',
+              itemName: 'Cardinalfish',
+              itemSname: 'Pterapogon',
+              itemPrice: 44.99,
+              itemAvailability: 'In Stock',
+              desc: 'This is a description of a .'
+            },
+          ]
+        },
+        methods: {
+          itemClicked: function(item) {
+            this.img = item.itemImg;
+            this.alt = item.itemAlt;
+            this.name = item.itemName;
+            this.sname = item.itemSname;
+            this.price = item.itemPrice;
+            this.availability = item.itemAvailability;
+            this.description = item.desc;
+            $("#my-modal").modal('show');
+          }
+        }
+      });
+
+    </script>
+    <footer class="centertext"><a href="">About Us</a> - <a href="">Privacy Policy</a> - <a href="">Returns Policy</a> - <a href="">Shipping and Payment</a> - <a href="">Terms of Use</a></footer>
+  </body>
+
 </html>
