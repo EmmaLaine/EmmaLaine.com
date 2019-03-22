@@ -9896,7 +9896,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .banner {
  height: 100vh;
- background-image: url('images/face.svg');
+ background-image: url('/images/face.svg');
   background-size: cover;
  background-repeat: no-repeat;
  
