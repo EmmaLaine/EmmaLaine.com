@@ -84,6 +84,11 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 0.5rem;
 }
 
+h2.title{
+  padding-top: 4rem;
+  margin-top: -4rem;
+}
+
 p {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -203,7 +208,7 @@ figure {
 img {
   vertical-align: middle;
   border-style: none;
-  width: 100%
+  margin: 10px;
 }
 
 svg {
@@ -499,6 +504,7 @@ mark,
 .figure-caption {
   font-size: 90%;
   color: #6c757d;
+  padding-left: 10px;
 }
 
 code {
@@ -6107,6 +6113,7 @@ a.close.disabled {
   position: relative;
   width: 100%;
   overflow: hidden;
+  margin-bottom: 50px;
 }
 
 .carousel-inner::after {
@@ -6243,7 +6250,7 @@ a.close.disabled {
 .carousel-indicators {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -30px;
   left: 0;
   z-index: 15;
   display: -ms-flexbox;
@@ -6285,15 +6292,14 @@ a.close.disabled {
 }
 
 .carousel-caption {
-  position: absolute;
-  right: 15%;
-  bottom: 20px;
-  left: 15%;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 10px;
   z-index: 10;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  color: #fff;
-  text-align: center;
+  font-style: italic;
+  font-size:90%;
+  color: #6c757d;
 }
 
 @-webkit-keyframes spinner-border {
@@ -7920,6 +7926,30 @@ button.bg-dark:focus {
   margin-left: 3rem !important;
 }
 
+.m-6 {
+  margin: 4rem !important;
+}
+
+.mt-6,
+.my-6 {
+  margin-top: 4rem !important;
+}
+
+.mr-6,
+.mx-6 {
+  margin-right: 4rem !important;
+}
+
+.mb-6,
+.my-6 {
+  margin-bottom: 4rem !important;
+}
+
+.ml-6,
+.mx-6 {
+  margin-left: 4rem !important;
+
+
 .p-0 {
   padding: 0 !important;
 }
@@ -8064,6 +8094,30 @@ button.bg-dark:focus {
   padding-left: 3rem !important;
 }
 
+.p-6 {
+  padding: 4rem !important;
+}
+
+.pt-6,
+.py-6 {
+  padding-top: 4rem !important;
+}
+
+.pr-6,
+.px-6 {
+  padding-right: 4rem !important;
+}
+
+.pb-6,
+.py-6 {
+  padding-bottom: 4rem !important;
+}
+
+.pl-6,
+.px-6 {
+  padding-left: 4rem !important;
+}
+
 .m-n1 {
   margin: -0.25rem !important;
 }
@@ -8182,6 +8236,30 @@ button.bg-dark:focus {
 .ml-n5,
 .mx-n5 {
   margin-left: -3rem !important;
+}
+
+.m-n6 {
+  margin: -4rem !important;
+}
+
+.mt-n6,
+.my-n6 {
+  margin-top: -4rem !important;
+}
+
+.mr-n6,
+.mx-n6 {
+  margin-right: -4rem !important;
+}
+
+.mb-n6,
+.my-n6 {
+  margin-bottom: -4rem !important;
+}
+
+.ml-n6,
+.mx-n6 {
+  margin-left: -4rem !important;
 }
 
 .m-auto {
@@ -9896,7 +9974,7 @@ a.text-dark:hover, a.text-dark:focus {
 
 .banner {
  height: 100vh;
- /*background-image: url('/images/face.svg');*/
+ background-image: url('/images/face.svg');
   background-size: cover;
  background-repeat: no-repeat;
  
